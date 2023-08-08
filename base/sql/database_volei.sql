@@ -17,6 +17,7 @@ ALTER TABLE `users`
 CREATE TABLE `players` (
     `id_players` int(11) NOT NULL,
     `name` varchar(255) NOT NULL,
+    `cpf` varchar(14) not NULL,
     `zipcode` varchar(9),
     `city` varchar(255),
     `neighborhood` varchar(255),
@@ -24,7 +25,7 @@ CREATE TABLE `players` (
     `number` int(4),
     `gender` char(1),
     `birthdate` date,
-    `height` decimal(15,3),
+    `height` varchar(4),
     `status` char(1)
 );
 
@@ -43,7 +44,7 @@ CREATE TABLE `stadium` (
     `neighborhood` varchar(255) NOT NULL,
     `street` varchar(255) NOT NULL, 
     `number` int(4) NOT NULL,
-    `price1hr` decimal(15,3) NOT NULL,
+    `price1hr` decimal(15,2) NOT NULL,
     `status` char(1)
 );
 
@@ -60,7 +61,7 @@ CREATE TABLE `games` (
     `id_stadiumfk` int(11) NOT NULL,
     `id_playersfk` int(11) NOT NULL,
     `quantity_peaple` int(11) NOT NULL,
-    `price` decimal(15,3) NOT NULL,
+    `price` decimal(15,2) NOT NULL,
     `game_date` date NOT NULL,
     `payment` varchar(30) NOT NULL,
     `status` char(1) NOT NULL,

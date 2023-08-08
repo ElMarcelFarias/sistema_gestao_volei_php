@@ -23,9 +23,9 @@ if($linhas==0){
     $_SESSION['nivel']=$usuario['nivel'];
     
     if($usuario['nivel']=='1'){
-        header("Location: gestao_index.php");
+        header("Location: indexGames.php");
     }else{
-        header("Location: gestao_index.php");
+        header("Location: indexGames.php");
     }
 }
 
