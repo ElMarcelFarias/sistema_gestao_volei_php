@@ -123,11 +123,11 @@ if(isset($_REQUEST['id'])){
                                 <div class="form-group">
                                     <label for="games_edit_forma_pagamento">Forma de Pagamento</label> 
                                     <select name="games_edit_forma_pagamento" id="games_edit_forma_pagamento" class="custom-select">
-                                        <option value='DINHEIRO' <?= $sexo == "DINHEIRO"? "selected": ''?>>Dinheiro</option>
-                                        <option value='BOLETO'  <?= $sexo == "BOLETO"? "selected": ''?>>Boleto</option>
-                                        <option value='CREDITO' <?= $sexo == "CREDITO"? "selected": ''?>>Crédito - Á vista</option>
-                                        <option value='DEBITO' <?= $sexo == "DEBITO"? "selected": ''?>>Débito</option>
-                                        <option value='PIX' <?= $sexo == "PIX"? "selected": ''?>>PIX</option>
+                                        <option value='DINHEIRO' <?= $forma_pagamento == "DINHEIRO"? "selected": ''?>>Dinheiro</option>
+                                        <option value='BOLETO'  <?= $forma_pagamento == "BOLETO"? "selected": ''?>>Boleto</option>
+                                        <option value='CREDITO' <?= $forma_pagamento == "CREDITO"? "selected": ''?>>Crédito - Á vista</option>
+                                        <option value='DEBITO' <?= $forma_pagamento == "DEBITO"? "selected": ''?>>Débito</option>
+                                        <option value='PIX' <?= $forma_pagamento == "PIX"? "selected": ''?>>PIX</option>
                                     </select>
                                 </div>
                             </div>
@@ -155,80 +155,6 @@ if(isset($_REQUEST['id'])){
 
 
 <script>
-
-    //máscaras de cpf e cep
-    $(document).ready(function () { 
-
-        var cpf = $('#edit_alunos_cpf');
-        cpf.mask('000.000.000-00', {reverse: false});
-
-        var cep = $('#edit_alunos_cep');
-        cep.mask('00000-000', {reverse: false});
-    });
-
-
-    //validação cpf
-    $(function(){
-    //Executa a requisição quando o campo username perder o foco
-    $('#edit_alunos_cpf').blur(function()
-        {
-            var cpf = $('#edit_alunos_cpf').val().replace(/[^0-9]/g, '').toString();
-
-            if( cpf.length == 11 )
-            {
-                var v = [];
-
-                //Calcula o primeiro dígito de verificação.
-                v[0] = 1 * cpf[0] + 2 * cpf[1] + 3 * cpf[2];
-                v[0] += 4 * cpf[3] + 5 * cpf[4] + 6 * cpf[5];
-                v[0] += 7 * cpf[6] + 8 * cpf[7] + 9 * cpf[8];
-                v[0] = v[0] % 11;
-                v[0] = v[0] % 10;
-
-                //Calcula o segundo dígito de verificação.
-                v[1] = 1 * cpf[1] + 2 * cpf[2] + 3 * cpf[3];
-                v[1] += 4 * cpf[4] + 5 * cpf[5] + 6 * cpf[6];
-                v[1] += 7 * cpf[7] + 8 * cpf[8] + 9 * v[0];
-                v[1] = v[1] % 11;
-                v[1] = v[1] % 10;
-
-                //Retorna Verdadeiro se os dígitos de verificação são os esperados.
-                if ( (v[0] != cpf[9]) || (v[1] != cpf[10]) )
-                {
-                    Swal.fire(
-                        'Erro',
-                        'Por favor, preencha um CPF válido!',
-                        'error'
-                        )
-
-                    $('#edit_alunos_cpf').val('');
-                    $('#edit_alunos_cpf').focus();
-                }
-            }
-            
-        });
-    });
-
-    //API VIA CEP 
-    function preencherEnderecoEditAlunos(cep){
-        $('#edit_alunos_cidade').val('');
-        $('#edit_alunos_bairro').val('');
-        $('#edit_alunos_rua').val('');
-
-        $.getJSON("https://viacep.com.br/ws/"+cep+"/json/?callback=?", function(dados) {
-            if (!("erro" in dados)) {       
-                $("#edit_alunos_rua").val(dados.logradouro);
-                $("#edit_alunos_bairro").val(dados.bairro);
-                $("#edit_alunos_cidade").val(dados.localidade);                                
-            }else {                        
-                Swal.fire(
-                        'Erro',
-                        'CEP não encontrado! Preencha o endereço manualmente.',
-                        'error'
-                        )
-            }
-        });
-    }
 
 
 

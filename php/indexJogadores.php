@@ -200,10 +200,9 @@ $(document).ready(function() {
 $(document).on('click', '.editarJogadores', function(){
     var id = $(this).attr('id');
 
-    
     $("#modal_edit").html('');
     $.ajax({
-        url: 'viewAlunos.php',
+        url: 'Editar/jogadoresEditarView.php',
         type: 'POST',
         cache: false,
         data: {id:id},

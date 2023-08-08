@@ -48,7 +48,7 @@
                                                 }
 
                                                 foreach($playersArray as $players) {
-                                                    echo "<option value='".$players['id_players']."'>".strtoupper($players['name'].' - '.number_format($players['height']/100, 2, ',', '')).'m'."</option>";
+                                                    echo "<option value='".$players['id_players']."'>".strtoupper($players['name'].' - '.$players['height']).'M'."</option>";
                                                 }
                                                 
                                             ?>
