@@ -17,7 +17,7 @@
                                         <label for="games_add_estadio">Estádio</label>
                                         <select name="games_add_estadio" id="games_add_estadio" class="custom-select">
                                             <?php 
-                                                $sql = "SELECT * FROM stadium";
+                                                $sql = "SELECT * FROM stadium WHERE `status` = 'A'";
                                                 $query = $con->query($sql) or die($con->error);
                                                 $estadioArray = array();
 
@@ -39,7 +39,7 @@
                                         <label for="games_add_jogador_responsavel">Jogador Responsável</label>
                                         <select name="games_add_jogador_responsavel" id="games_add_jogador_responsavel" class="custom-select">
                                             <?php 
-                                                $sql = "SELECT * FROM players";
+                                                $sql = "SELECT * FROM players WHERE `status` = 'A'";
                                                 $query = $con->query($sql) or die($con->error);
                                                 $playersArray = array();
 
