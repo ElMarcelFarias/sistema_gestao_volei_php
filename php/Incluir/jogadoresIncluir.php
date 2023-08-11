@@ -15,12 +15,14 @@ $jogadores_numero = $_POST['jogadores_add_numero'];
 $jogadores_sexo = $_POST['jogadores_add_sexo'];
 $jogadores_altura = $_POST['jogadores_add_altura'];
 $jogadores_data_nascimento = $_POST['jogadores_add_data_nascimento'];
+$jogadores_add_whatssap = $_POST['jogadores_add_whatssap'];
 
 
 
-$sql = "INSERT INTO players (`name`, `cpf`, `zipcode`, `city`, `neighborhood`, `street`, `number`, `gender`, `birthdate`, `height`, `status`) 
-              VALUES  ('$name', '$jogadores_cpf', '$jogadores_cep', '$jogadores_cidade', '$jogadores_bairro', '$jogadores_rua', 
-                       '$jogadores_rua', '$jogadores_sexo', '$jogadores_data_nascimento', '$jogadores_altura', 'A')";
+$sql = "INSERT INTO players (`name`, `whatssap`, `cpf`, `zipcode`, `city`, `neighborhood`, `street`, `number`, `gender`, `birthdate`, `height`, `status`) 
+              VALUES  ('$name', '$jogadores_add_whatssap', '$jogadores_cpf', '$jogadores_cep', '$jogadores_cidade', '$jogadores_bairro', '$jogadores_rua', 
+                       '$jogadores_numero', '$jogadores_sexo', '$jogadores_data_nascimento', '$jogadores_altura', 'A')";
+
 $query = $con->query($sql) or die ($con->error);
 
 

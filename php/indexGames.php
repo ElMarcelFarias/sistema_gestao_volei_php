@@ -130,7 +130,7 @@
                             <td><?= strtoupper($row['name_checked'])?></td>
                             <td><?= strtoupper($row['price'])?></td>
                             <td><?= date('d/m/Y', strtotime($row['game_date'])) ?></td>
-                            <td><?= strtoupper($row['game_duration'])?></td>
+                            <td><?= strtoupper($row['game_duration']).'hr'?></td>
                             <td><?= strtoupper($row['payment'])?></td>
                             <td>
                                 <button type="button" class="btn btn-danger btn-sm deleteGame" id="<?= $row['id_game']?>"><span class="material-icons align-text-bottom">delete</span></button>

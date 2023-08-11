@@ -17,6 +17,7 @@ ALTER TABLE `users`
 CREATE TABLE `players` (
     `id_players` int(11) NOT NULL,
     `name` varchar(255) NOT NULL,
+    `whatssap` varchar(11),
     `cpf` varchar(14) not NULL,
     `zipcode` varchar(9),
     `city` varchar(255),
@@ -57,7 +58,7 @@ ALTER TABLE `stadium`
 
 CREATE TABLE `games` (
     `id_game` int(11) NOT NULL,
-    `game_duration` int(1) NOT NULL,
+    `game_duration` varchar(5) NOT NULL,
     `id_stadiumfk` int(11) NOT NULL,
     `id_playersfk` int(11) NOT NULL,
     `quantity_peaple` int(11) NOT NULL,

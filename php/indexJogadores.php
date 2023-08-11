@@ -126,7 +126,7 @@
                                 <td><?= strtoupper($row['name'])?></td>
                                 <td><?= $row['cpf']?></td>
                                 <td><?= strtoupper($row['city'] ." ". $row['zipcode'])?></td>
-                                <td><?= strtoupper($row['street'] .', '.$row['number']. $row['bairro'])?></td>
+                                <td><?= strtoupper($row['street'] .', '.$row['number']. ' - '.$row['neighborhood'])?></td>
                                 <td><?= $row['gender']?></td>
                                 <td><?= date('d/m/Y', strtotime($row['birthdate'])) ?></td>
                                 <td><?= $row['height'].'M' ?></td>

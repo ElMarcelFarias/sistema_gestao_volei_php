@@ -30,6 +30,7 @@ if(isset($_REQUEST['id'])){
     $sexo = $row['gender'];
     $dataNascimento = $row['birthdate'];
     $altura = $row['height'];
+    $telefone = $row['whatssap'];
 }
 ?>
 
@@ -59,6 +60,13 @@ if(isset($_REQUEST['id'])){
                             <div class="form-group">
                                 <label for="jogadores_edit_sobrenome">Sobrenome</label>
                                 <input type="text" class="form-control" name="jogadores_edit_sobrenome" id="jogadores_edit_sobrenome" value="<?=$text?>" style="text-transform: uppercase;">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="jogadores_edit_whatssap">Telefone (Whatssap)</label>
+                                <input type="text" class="form-control" name="jogadores_edit_whatssap" id="jogadores_edit_whatssap" value="<?=$telefone?>" style="text-transform: uppercase;">
                             </div>
                         </div>
 
@@ -163,6 +171,9 @@ if(isset($_REQUEST['id'])){
 
         var altura = $('#jogadores_edit_altura');
         altura.mask('0,00', {reverse: false});
+
+        var telefone = $('#jogadores_edit_whatssap');
+        telefone.mask('(00) 00000-0000', {reverse: false});
     });
 
 
@@ -245,9 +256,10 @@ if(isset($_REQUEST['id'])){
             var jogadores_sexo = $("#jogadores_edit_sexo").val();
             var jogadores_altura = $("#jogadores_edit_altura").val();
             var jogadores_data_nascimento = $("#jogadores_edit_data_nascimento").val();
+            var jogadores_whatssap = $("#jogadores_edit_whatssap").val();
 
             
-            if(jogadores_nome == '' || jogadores_sobrenome == '' || jogadores_cpf == ''  || jogadores_cep == '' || jogadores_cidade == ''  || jogadores_bairro == '' || jogadores_rua == '' || jogadores_numero == '' || jogadores_sexo == '' || jogadores_altura == '' || jogadores_data_nascimento == '') {
+            if(jogadores_whatssap == '' ||jogadores_nome == '' || jogadores_sobrenome == '' || jogadores_cpf == ''  || jogadores_cep == '' || jogadores_cidade == ''  || jogadores_bairro == '' || jogadores_rua == '' || jogadores_numero == '' || jogadores_sexo == '' || jogadores_altura == '' || jogadores_data_nascimento == '') {
                 Swal.fire(
                     'Erro',
                     'Por favor, preencha os campos corretamente!',

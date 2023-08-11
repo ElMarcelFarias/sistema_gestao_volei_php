@@ -29,6 +29,13 @@
 
                         <div class="col-sm-6">
                             <div class="form-group">
+                                <label for="jogadores_add_whatssap">Telefone (Whatssap)</label>
+                                <input type="text" class="form-control" name="jogadores_add_whatssap" id="jogadores_add_whatssap" style="text-transform: uppercase;">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
                                 <label for="jogadores_add_cpf">CPF</label>
                                 <input type="text" class="form-control cpf" name="jogadores_add_cpf" id="jogadores_add_cpf" style="text-transform: uppercase;">
                             </div>
@@ -121,9 +128,12 @@
 
         var cep = $('#jogadores_add_cep');
         cep.mask('00000-000', {reverse: false});
-
+        
         var altura = $('#jogadores_add_altura');
         altura.mask('0,00', {reverse: false});
+
+        var telefone = $('#jogadores_add_whatssap');
+        telefone.mask('(00) 00000-0000', {reverse: false});
     });
 
 
@@ -206,9 +216,10 @@
             var jogadores_sexo = $("#jogadores_add_sexo").val();
             var jogadores_altura = $("#jogadores_add_altura").val();
             var jogadores_data_nascimento = $("#jogadores_add_data_nascimento").val();
+            var jogadores_whatssap = $("#jogadores_add_whatssap").val();
 
             
-            if(jogadores_nome == '' || jogadores_sobrenome == '' || jogadores_cpf == ''  || jogadores_cep == '' || jogadores_cidade == ''  || jogadores_bairro == '' || jogadores_rua == '' || jogadores_numero == '' || jogadores_sexo == '' || jogadores_altura == '' || jogadores_data_nascimento == '') {
+            if(jogadores_whatssap == '' ||jogadores_nome == '' || jogadores_sobrenome == '' || jogadores_cpf == ''  || jogadores_cep == '' || jogadores_cidade == ''  || jogadores_bairro == '' || jogadores_rua == '' || jogadores_numero == '' || jogadores_sexo == '' || jogadores_altura == '' || jogadores_data_nascimento == '') {
                 Swal.fire(
                     'Erro',
                     'Por favor, preencha os campos corretamente!',
